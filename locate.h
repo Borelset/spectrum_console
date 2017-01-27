@@ -1,0 +1,2 @@
+
+int locate(char* path);
