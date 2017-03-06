@@ -51,30 +51,17 @@ int locate(char* path) {
 	morphologyEx(temp, temp, MORPH_CLOSE, kernal);
 	morphologyEx(temp, temp, MORPH_OPEN, kernal);
 	Canny(temp, temp, 30, 40);
-
-	Scalar color(0, 255, 0);
+	
 	vector<vector<Point> >result = findsymbal(temp);
 
 	Mat cts = source.clone();
 	vector<Point> centerpoints;
 	for (int i = 0; i < result.size(); i++)
 	{
-		drawContours(cts, result, i, color, 1);
-		cts = source.clone();
 		pointinsert(&centerpoints, centerpoint(result[i]), ref_lenth);
 	}
 
 	int plenth = centerpoints.size();
-	Scalar color2(0, 0, 255);
-	for (int i = 0; i < plenth; i++)
-	{
-		for (int j = i; j < plenth; j++)
-		{
-			line(cts, centerpoints[i], centerpoints[j], color2, 3);
-		}
-	}
-
-	cts = source.clone();
 
 	if (centerpoints.size() != 4)
 	{
@@ -216,8 +203,6 @@ int linetest(Point a, Point b, Mat source)
 	}
 	Point a_ori = a;
 	Mat cts = source.clone();
-	Scalar color2(0, 255, 255);
-	line(cts, a, b, color2, 3);
 	Point vector = b - a;
 	int result[600] = { 0 };
 	int lenth = 0;
