@@ -1,6 +1,11 @@
 ##安装opencv
 ###编译环境
 ```
+chmod 775 opencv_setup.sh
+./opencv_setup.sh
+```
+或者
+```
 sudo apt-get update
 sudo apt-get install build-essential
 sudo apt-get install cmake git libgtk2.0-dev pkg-config
