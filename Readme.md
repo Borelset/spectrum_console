@@ -17,8 +17,10 @@ sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libp
 ```
 wget https://github.com/opencv/opencv/archive/3.2.0.zip
 ```
-下载并解压opencv后，进入opencv的文件夹
+编译
 ```
+unzip 3.2.0.zip
+cd opencv-3.2.0
 mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=release -D CMAKE_INSTALL_PREFIX=/usr/local ..
