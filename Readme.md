@@ -59,10 +59,9 @@ export PKG_CONFIG_PATH
 ./spectrum -r [filename]
 ```
 ##生成范例   
+<img src="https://github.com/Borelset/spectrum/blob/master/code.jpg" width = "300" height = "300" />   
 可以修改模板，将四个角上的识别标记替换为其他图形，生成各种各样的二维码，只要该图形的子轮廓层数大于等于6即可。
-这样就可以不再对其具体形状做限制，提高位置探测图像的多样性。
-<img src="https://github.com/Borelset/spectrum/blob/master/code.jpg" width = "300" height = "300" />
-    
+这样就可以不再对四角上识别标记的具体形状做限制，提高多样性。    
 
 ##感谢    
 感谢mersinvald的Reed-Solomon项目提供的里德所罗门算法的实现。        
