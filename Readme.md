@@ -59,7 +59,7 @@ export PKG_CONFIG_PATH
 ./spectrum -r [filename]
 ```
 ##生成范例   
-四个角上的识别标记可以被替换为其他图形，只要该图形的最深层次大于等于6即可
+四个角上的识别标记可以被替换为其他图形，只要该图形的子轮廓层数大于等于6即可
 <img src="https://github.com/Borelset/spectrum/blob/master/code.jpg" width = "300" height = "300" />
     
 
