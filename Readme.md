@@ -1,3 +1,5 @@
+#基于轮廓识别的新型二维码   
+   
 ##安装opencv
 ###编译环境
 ```
@@ -45,4 +47,23 @@ sudo gedit /etc/bash.bashrc
 PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 export PKG_CONFIG_PATH
 ```
+##使用
+生成二维码   
+```
+./spectrum -g [text]
+```
+输入命令后会生成一个code.jpg
 
+识别二维码
+```
+./spectrum -r [filename]
+```
+##生成范例   
+四个角上的识别标记可以被替换为其他图形，只要该图形的最深层次大于等于6即可
+<img src="https://github.com/Borelset/spectrum/blob/master/code.jpg" width = "300" height = "300" />
+    
+
+##感谢    
+感谢mersinvald的Reed-Solomon项目提供的里德所罗门算法的实现。        
+本项目中的poly.hpp / gf.hpp / rs.hpp 来自       
+https://github.com/mersinvald/Reed-Solomon
