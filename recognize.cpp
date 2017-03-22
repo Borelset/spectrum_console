@@ -14,7 +14,8 @@ using namespace std;
 using namespace cv;
 
 Point getref_r(int order);
-int analycolor_r(Vec3b input);
+//int analycolor_r(Vec3b input);
+int analycolor_r(Vec3b input, Scalar record_color[]);
 void inttochar(vector<int> input, char* buf);
 
 int recognize(char* path)
@@ -27,16 +28,35 @@ int recognize(char* path)
 	}
 
 	Mat target = imread("locate.jpg");
+
+	Scalar stand_color[8] = { Scalar(0,0,0), Scalar(0,0,255), Scalar(0,255,0), Scalar(0,255,255), Scalar(255,0,0), Scalar(255,0,255), Scalar(255,255,0), Scalar(255,255,255) };
+	Scalar record_color[8] = { Scalar(255,255,255), Scalar(255,255,0), Scalar(255,0,255), Scalar(255,0,0), Scalar(0,255,255), Scalar(0,255,0), Scalar(0,0,255), Scalar(0,0,0) };
+	int mindis[8] = { 195075, 195075, 195075, 195075, 195075, 195075, 195075, 195075 };
+	for (int i = 0; i < 512; i++)
+	{
+		Scalar temp = target.at<Vec3b>(getref_r(i).y, getref_r(i).x);
+		for (int j = 0; j < 8; j++)
+		{
+			int dis = (temp - stand_color[j]).dot(temp - stand_color[j]);
+			if (dis < mindis[j])
+			{
+				mindis[j] = dis;
+				record_color[j] = temp;
+			}
+			
+		}
+	}
+
 	vector<int> receive_colors;
 	for (int i = 0; i < 512; i++)
 	{
-		receive_colors.insert(receive_colors.end(), analycolor_r(target.at<Vec3b>(getref_r(i).y, getref_r(i).x)));
+		receive_colors.insert(receive_colors.end(), analycolor_r(target.at<Vec3b>(getref_r(i).y, getref_r(i).x), record_color));
 	}
 	char string[192];
 	inttochar(receive_colors, string);
 
 	decode(string);
-	system("rm locate.jpg");
+	system("del locate.jpg");
 	return 0;
 }
 
@@ -83,12 +103,26 @@ Point getref_r(int order)
 	return ref;
 }
 
-int analycolor_r(Vec3b input)
+int analycolor_r(Vec3b input, Scalar record_color[])
 {
+	Scalar temp = input;
+	int result = 0;
+	int dis = 195075;
+	for (int i = 0; i < 8; i++)
+	{
+		if ((temp - record_color[i]).dot((temp - record_color[i])) < dis)
+		{
+			dis = (temp - record_color[i]).dot((temp - record_color[i]));
+			result = i;
+		}
+	}
+	/*
 	int b = input[0] > 127 ? 1 : 0;
 	int g = input[1] > 127 ? 1 : 0;
 	int r = input[2] > 127 ? 1 : 0;
 	int result = b * 4 + g * 2 + r;
+	printf("%d %d %d\n", r, g, b);
+	*/
 	return result;
 }
 
@@ -148,5 +182,4 @@ void inttochar(vector<int> input, char* buf)
 		}
 	}
 }
-
 
