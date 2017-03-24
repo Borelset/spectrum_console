@@ -23,7 +23,7 @@ int recognize(char* path)
 
 	if (locate(path) != 0)
 	{
-		cout << "Some troubles happened in locate!\nStop to recognize.\n";
+		cout << "Some troubles happened in locate!\n";
 		return -1;
 	}
 
@@ -56,7 +56,7 @@ int recognize(char* path)
 	inttochar(receive_colors, string);
 
 	decode(string);
-	system("del locate.jpg");
+	system("rm locate.jpg");
 	return 0;
 }
 
