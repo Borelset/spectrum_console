@@ -61,10 +61,17 @@ export PKG_CONFIG_PATH
 ```
 生成范例
 ------------- 
-<img src="https://github.com/Borelset/spectrum/blob/master/code.jpg" width = "300" height = "300" />   
+<img src="https://github.com/Borelset/spectrum_linux_version/blob/master/code.jpg" width = "300" height = "300" />   
+
 可以修改模板，将四个角上的识别标记替换为其他图形，生成各种各样的二维码，只要该图形的子轮廓层数大于等于6即可。
 这样就可以不再对四角上识别标记的具体形状做限制，提高多样性。    
-默认使用的模板为template.jpg，替换为template1.jpg或者template2.jpg也可以使用。   
+默认使用的模板为template.jpg，替换为template1.jpg或者template2.jpg也可以使用。      
+默认的template.jpg   
+<img src="https://github.com/Borelset/spectrum_linux_version/blob/master/template.jpg" width = "300" height = "300" />      
+template1.jpg   
+<img src="https://github.com/Borelset/spectrum_linux_version/blob/master/template1.jpg" width = "300" height = "300" />      
+template2.jpg   
+<img src="https://github.com/Borelset/spectrum_linux_version/blob/master/template2.jpg" width = "300" height = "300" />      
    
 感谢
 ---------------
