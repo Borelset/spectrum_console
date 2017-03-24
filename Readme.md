@@ -68,6 +68,8 @@ export PKG_CONFIG_PATH
    
 感谢
 ---------------
-感谢mersinvald的Reed-Solomon项目提供的里德所罗门算法的实现。        
-本项目中的poly.hpp / gf.hpp / rs.hpp 来自       
+感谢mersinvald的Reed-Solomon项目提供的里德所罗门算法的实现。
+   
+本项目中的poly.hpp / gf.hpp / rs.hpp 来自
+   
 https://github.com/mersinvald/Reed-Solomon
