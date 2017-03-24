@@ -13,7 +13,7 @@ sudo apt-get update
 sudo apt-get install build-essential
 sudo apt-get install cmake git libgtk2.0-dev pkg-config
 sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev
-sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+sudo apt-get install libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
 ```   
 下载opencv
 ```
@@ -37,7 +37,7 @@ sudo gedit /etc/ld.so.conf.d/opencv.conf
 ```
 /usr/local/lib
 ```
-        
+然后
 ```
 sudo ldconfig
 sudo gedit /etc/bash.bashrc
